@@ -1,4 +1,4 @@
-# gitpack
+# gitpack ![C/C++ CI](https://github.com/GrbavaCigla/gitpack/workflows/C/C++%20CI/badge.svg)
 Package manager that installs and builds repositories from git. Written in C.
 
 ## Dependencies
