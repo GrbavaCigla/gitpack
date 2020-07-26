@@ -14,6 +14,10 @@ Package manager that installs and builds repositories from git. Written in C.
 ```
 # dnf install gcc make libgit2
 ```
+### Gentoo
+```
+emerge -av sys-devel/gcc sys-devel/make dev-libs/libgit2
+```
 
 ## Installation
 ```
