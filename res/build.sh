@@ -13,7 +13,6 @@ if [ -f "configure" ]; then
 fi
 
 if [ -f "CMakeLists.txt" ]; then
-    echo "CMAKE detected"
     mkdir build
     cd build
     cmake ..
