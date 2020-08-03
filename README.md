@@ -33,8 +33,8 @@ gp install https://github.com/GrbavaCigla/gitpack
 
 ## TODO
 - update
-- flags
-- short url (check sources.txt)
-- remove
+- ~~flags~~
+- ~~short url (check sources.txt)~~
+- remove (almost done)
 - colors
 - feedback
