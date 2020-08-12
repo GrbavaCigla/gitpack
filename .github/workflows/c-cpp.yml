@@ -13,5 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: dependency
+      run: sudo apt install libgit2-dev
     - name: make
       run: make
