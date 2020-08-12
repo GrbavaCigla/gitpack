@@ -1,10 +1,12 @@
 #!/bin/sh
 
-if test $(command -v sudo); then 
-    set SUCMD = sudo
-elif test $(command -v doas); then
-    set SUCMD = doas
-fi
+#if test $(command -v sudo); then 
+#    set SUCMD = sudo
+#    echo "Using sudo"
+#elif test $(command -v doas); then
+#    set SUCMD = doas
+#    echo "Using doas"
+#fi
 
 cd "${PKGPATH}"
 
@@ -18,7 +20,7 @@ if [ -f "CMakeLists.txt" ]; then
     cmake ..
 fi
 
-if [ -f "Makefile" ]; then
+if [ -f "Makefile" ] || [ -f "makefile" ]; then
 	make
-	${SUCMD} make install
+	make install
 fi
