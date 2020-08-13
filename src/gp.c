@@ -30,6 +30,7 @@ int clone(const char *url, const char *path)
             strcat(final_url, url);
             error = git_clone(&repo, final_url, path, NULL);
 
+            // If everything is fine, finish
             if (error == 0)
             {
                 break;
@@ -74,8 +75,7 @@ char *get_path(const char *url)
 
 int build(const char *path)
 {
-    char *command =
-        malloc(strlen(path) + strlen(cmdlist_path) + strlen("PKGPATH="));
+    char command[strlen(path) + strlen(cmdlist_path) + strlen("PKGPATH=")];
 
     strcpy(command, "PKGPATH=");
     strcat(command, path);
@@ -102,6 +102,7 @@ int main(int argc, char *argv[])
     if (strcmp(arguments.args[0], "install") == 0){
         char *path = get_path(arguments.args[1]);
         clone(arguments.args[1], path);
+        build(path);
     }
 
 

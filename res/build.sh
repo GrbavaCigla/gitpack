@@ -24,3 +24,10 @@ if [ -f "Makefile" ] || [ -f "makefile" ]; then
 	make
 	make install
 fi
+
+if [ -f "meson.build" ]; then
+	mkdir build
+	meson build
+	cd build
+	ninja
+fi
