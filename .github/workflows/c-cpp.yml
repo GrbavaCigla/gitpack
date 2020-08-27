@@ -14,6 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: dependency
-      run: sudo apt install libgit2-dev libarchive-dev libcurl4-gnutls-dev
+      run: sudo update && sudo apt install libgit2-dev libarchive-dev libcurl4-gnutls-dev
     - name: make
       run: make
