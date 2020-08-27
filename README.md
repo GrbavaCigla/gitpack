@@ -28,7 +28,7 @@ make install
 ## Usage
 **Not finished yet!**
 ```
-gp install https://github.com/GrbavaCigla/gitpack
+gp install GrbavaCigla/gitpack
 ```
 
 ## TODO
