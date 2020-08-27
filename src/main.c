@@ -39,7 +39,7 @@ int clone(const char *url, const char *path)
             // Repo already exists
             if (error == -4)
             {
-                safeRemove(path);
+                safe_remove(path);
 
                 return clone(url, path);
             }
@@ -67,8 +67,8 @@ char *get_path(const char *url)
         repo_name = temp;
     }
 
-    char *path = malloc(strlen(cache_path) + strlen(repo_name));
-    strcpy(path, cache_path);
+    char *path = malloc(strlen(package_path) + strlen(repo_name));
+    strcpy(path, package_path);
     strcat(path, repo_name);
     return path;
 }
@@ -84,12 +84,22 @@ int build(const char *path)
     return system(command);
 }
 
+int setup(){
+    safe_mkdir(config_path);
+    safe_mkdir(package_path);
+    safe_mkdir(minirootfs_path);
+
+    download_file(cmdlist_url, cmdlist_path);
+    download_file(minirootfs_url, minirootfs_path);
+
+    return 0;
+}
+
 static struct argp argp = {options, parse_opt, args_doc, doc};
 
 int main(int argc, char *argv[])
 {
-    safeMkdir(config_path);
-    safeMkdir(cache_path);
+    
 
     arguments.full_url_flag = 0;
     arguments.clone_master = 0;
@@ -98,14 +108,26 @@ int main(int argc, char *argv[])
 
     git_libgit2_init();
 
-
-    if (strcmp(arguments.args[0], "install") == 0){
+    if (strcmp(arguments.args[0], "install") == 0)
+    {
         char *path = get_path(arguments.args[1]);
-        clone(arguments.args[1], path);
-        build(path);
+        if (clone(arguments.args[1], path) == 0)
+        {
+            build(path);
+        }
     }
 
+    if (strcmp(arguments.args[0], "setup") == 0)
+    {
+        setup();
+    }
 
+    if (strcmp(arguments.args[0], "remove") == 0)
+    {
+        char *path = get_path(arguments.args[1]);
+        safe_remove(path);
+        // TODO: remove installed files
+    }
 
     git_libgit2_shutdown();
 

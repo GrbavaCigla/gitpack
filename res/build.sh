@@ -30,4 +30,5 @@ if [ -f "meson.build" ]; then
 	meson build
 	cd build
 	ninja
+	ninja install
 fi

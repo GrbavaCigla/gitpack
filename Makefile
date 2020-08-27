@@ -5,8 +5,8 @@ ifeq ($(PREFIX),)
     PREFIX := /usr/local
 endif
 
-INC = $(shell pkg-config --cflags libgit2)
-LIB = $(shell pkg-config --libs libgit2)
+INC = $(shell pkg-config --cflags libgit2 libcurl)
+LIB = $(shell pkg-config --libs libgit2 libcurl)
 
 _CFLAGS = -std=c99 -pedantic -Wall -Wno-deprecated-declarations -Wno-nonnull -O3
 
@@ -29,7 +29,7 @@ clean:
 
 install: obj/${NAME}
 	install -t $(PREFIX)/bin/ -D obj/${NAME}
-	mkdir -p $(shell grep "config_path" src/config.h | grep -oE "\".+\"" | tr -d \" | tr -d ";")
-	mkdir -p ${shell grep "cache_path" src/config.h | grep -oE "\".+\"" | tr -d \" | tr -d ";"}
+	# mkdir -p $(shell grep "config_path" src/config.h | grep -oE "\".+\"" | tr -d \" | tr -d ";")
+	# mkdir -p ${shell grep "package_path" src/config.h | grep -oE "\".+\"" | tr -d \" | tr -d ";"}
 	cp res/build.sh ${shell grep "cmdlist_path" src/config.h | grep -oE "\".+\"" | tr -d \" | tr -d ";"}
 

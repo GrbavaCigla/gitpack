@@ -1,1 +1,3 @@
 llibgit2
+libarchive
+libcurl
