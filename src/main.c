@@ -90,7 +90,8 @@ int setup(){
     safe_mkdir(minirootfs_path);
 
     download_file(cmdlist_url, cmdlist_path);
-    download_file(minirootfs_url, minirootfs_path);
+    
+    // download_file(minirootfs_url, minirootfs_path);
 
     return 0;
 }

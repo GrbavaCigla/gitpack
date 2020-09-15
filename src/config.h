@@ -24,7 +24,7 @@ char *cmdlist_url = "https://raw.githubusercontent.com/GrbavaCigla/gitpack/maste
 char *minirootfs_url = "http://dl-cdn.alpinelinux.org/alpine/v3.12/releases/x86_64/alpine-minirootfs-3.12.0-x86_64.tar.gz";
 
 // minirootfs location
-char *minirootfs_path = "/usr/share/gitpack/sandbox";
+char *minirootfs_path = "/usr/share/gitpack/sandbox/";
 
 
 
