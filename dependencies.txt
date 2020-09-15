@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 llibgit2
 libarchive
 libcurl
+=======
+libgit2
+>>>>>>> 43453793bb0a6ba863fe20aad32afd7443b7ae55
